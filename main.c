@@ -21,26 +21,33 @@ int main()
 		float highestRatingInList; //Voorlopig is dit Amon
 		char placements;
 		char human;
+		char temp;
 		
         printf("Placements? (y): ");
-        scanf(" %c", &placements);
+        scanf("%c", &placements);
         printf("Total sum all ratings played against: ");
-        scanf("%f", &sumRatingAllOpponents);
-		printf("Matches played: ");
+		scanf("%c", &temp);
+		if (temp == '.') {
+			printf("Average rating opponents: \n");
+			scanf("%f", &averageOpponent);
+		} else {
+			sumRatingAllOpponents = (float)temp;
+		}
+		printf("Matches played: \n");
 		scanf("%f", &matches);
-		printf("Score: ");
+		printf("Score: \n");
 		scanf("%f", &score);
 		if (placements == 'y') {			
             multiplier = 8;
             ownRating = (sumRatingAllOpponents / matches);			
 		}
 		else {
-			printf("Multiplier: ");
+			printf("Multiplier: \n");
 			scanf("%f", &multiplier);
-            printf("Your own rating: ");
+            printf("Your own rating: \n");
             scanf("%f", &ownRating);
 		}
-        averageOpponent = sumRatingAllOpponents / matches;
+		if (temp != '.') { averageOpponent = sumRatingAllOpponents / matches; }
 		printf("\nAverage opponent is %.1f", averageOpponent);
 		printf("\nYour new rating is %.1f", newRating(multiplier, ownRating, averageOpponent, matches, score));
 		printf("\n\n");
