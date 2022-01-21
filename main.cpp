@@ -13,7 +13,7 @@ float newRating(float multiplier, float ownRating, float averageOpponent, float 
 int main()
 {
 	while (1 != 2)
-  	{
+  {
 		float multiplier;
 		float ownRating;
 		float sumRatingAllOpponents;
@@ -25,32 +25,34 @@ int main()
 		char human;
 		char temp;
 
-		cout << "\nPlacements? (y): ";
-		cin >> placements;
-		cout << "Total sum all ratings played against: ";
-		cin >> temp;
-		if (temp == '.') {
+    cout << "\n\nPlacements? (y): ";
+    cin >> placements;
+    cout << "Matches played: ";
+	cin >> matches;
+    cout << "Score: ";
+	cin >> score;
+    cout << "Average rating? (y): ";
+    cin >> temp;		
+		if (temp == 'y') {
 			cout << "Average rating opponents: ";
 			cin >> averageOpponent;
 		} else {
-			sumRatingAllOpponents = float(temp);
-		}
-		cout << "Matches played: ";
-		cin >> matches;
-		cout << "Score: ";
-		cin >> score;
+            cout << "Total sum all ratings played against: ";
+			cin >> sumRatingAllOpponents;
+            averageOpponent = sumRatingAllOpponents / matches;
+		}		
+		
 		if (placements == 'y') {
-      		multiplier = 8;
-      		ownRating = (sumRatingAllOpponents / matches);
+      multiplier = 8;
+      ownRating = (sumRatingAllOpponents / matches);
 		}
 		else {
 			cout << "Multiplier: ";
 			cin >> multiplier;
-      		cout << "Your own rating: ";
-      		cin >> ownRating;
+      cout << "Your own rating: ";
+      cin >> ownRating;
 		}
-		if (temp != '.') { averageOpponent = sumRatingAllOpponents / matches; }
-		cout << "\nAverage opponent is ", averageOpponent;
-		cout << "\nYour new rating is ", newRating(multiplier, ownRating, averageOpponent, matches, score);
+		cout << "\nAverage opponent is " << averageOpponent << endl;
+		cout << "\nYour new rating is " << newRating(multiplier, ownRating, averageOpponent, matches, score) << endl;
 	}
 }
