@@ -22,7 +22,6 @@ int main()
 		float averageOpponent;
 		float highestRatingInList;
 		char placements;
-		char human;
 		char temp;
 
     cout << "\n\nPlacements? (y): ";
@@ -40,15 +39,14 @@ int main()
             cout << "Total sum all ratings played against: ";
 			cin >> sumRatingAllOpponents;
             averageOpponent = sumRatingAllOpponents / matches;
-		}		
+		}
+cout << "Multiplier: ";
+			cin >> multiplier;		
 		
 		if (placements == 'y') {
-      multiplier = 8;
-      ownRating = (sumRatingAllOpponents / matches);
+      ownRating = averageOpponent;
 		}
 		else {
-			cout << "Multiplier: ";
-			cin >> multiplier;
       cout << "Your own rating: ";
       cin >> ownRating;
 		}
